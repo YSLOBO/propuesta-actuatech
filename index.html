@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Propuesta Mercantil</title>
-    <link rel="stylesheet" href="./style.css">
+    
 
   </head>
     
@@ -70,9 +70,9 @@
 
         /* Header con gradiente */
         .header {
-            background: linear-gradient(135deg, var(--actuatech-primary) 0%, var(--mercantil-primary) 100%);
+            background: linear-gradient(135deg, var(--actuatech-primary) 0%, var(--actuatech-secondary) 100%);
             color: white;
-            padding: 40px;
+            padding: 40px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -96,34 +96,31 @@
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             margin-bottom: 10px;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
 
         .header-subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             opacity: 0.9;
             margin-bottom: 30px;
         }
 
-        /* Sección de logos */
-        .logos-section {
+        /* Sección de logo Actuatech en header */
+        .logo-section {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
             margin: 30px 0;
         }
 
         .company-logo {
             text-align: center;
-            padding: 25px;
+            padding: clamp(15px, 3vw, 25px);
             border-radius: var(--radius);
             transition: var(--transition);
-            min-width: 250px;
+            width: min(400px, 90%);
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
         }
@@ -134,10 +131,18 @@
         }
 
         .logo-img {
-            max-width: 200px;
-            max-height: 80px;
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            max-height: 100px;
             object-fit: contain;
-            margin-bottom: 15px;
+            margin: 0 auto 15px;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .company-logo:hover .logo-img {
+            transform: scale(1.05);
         }
 
         .company-info {
@@ -145,28 +150,83 @@
         }
 
         .company-name {
-            font-size: 1.5rem;
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
             font-weight: 700;
             margin-bottom: 5px;
         }
 
         .company-rif {
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             opacity: 0.9;
+        }
+
+        /* Sección de cliente Mercantil */
+        .client-section {
+            padding: clamp(30px, 5vw, 40px) 20px;
+            background: var(--light);
+            text-align: center;
+        }
+
+        .client-card {
+            background: white;
+            padding: clamp(20px, 4vw, 30px);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            width: min(500px, 90%);
+            margin: 0 auto;
+            border-top: 5px solid var(--mercantil-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .client-title {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--mercantil-primary);
+            margin-bottom: clamp(15px, 3vw, 20px);
+            font-weight: 700;
+        }
+
+        .client-logo-container {
+            width: 100%;
+            max-width: 300px;
+            height: 100px;
+            margin: 0 auto clamp(15px, 3vw, 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .client-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .client-card:hover .client-logo {
+            transform: scale(1.05);
         }
 
         /* Stats Section */
         .stats-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: clamp(15px, 3vw, 20px);
+            padding: clamp(30px, 5vw, 40px) 20px;
             background: var(--light);
         }
 
         .stat-card {
             background: white;
-            padding: 25px;
+            padding: clamp(20px, 3vw, 25px);
             border-radius: var(--radius);
             text-align: center;
             box-shadow: var(--shadow);
@@ -180,33 +240,33 @@
         }
 
         .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: clamp(10px, 2vw, 15px);
             color: var(--actuatech-accent);
         }
 
         .stat-number {
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             font-weight: 800;
             color: var(--actuatech-primary);
             margin-bottom: 5px;
         }
 
         .stat-label {
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             color: var(--gray-500);
             font-weight: 600;
         }
 
         /* Tabla de productos */
         .products-section {
-            padding: 40px;
+            padding: clamp(30px, 5vw, 40px) 20px;
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
             color: var(--actuatech-primary);
-            margin-bottom: 25px;
+            margin-bottom: clamp(15px, 3vw, 25px);
             padding-bottom: 10px;
             border-bottom: 3px solid var(--actuatech-accent);
             display: inline-block;
@@ -228,10 +288,10 @@
         }
 
         .products-table th {
-            padding: 18px 15px;
+            padding: clamp(12px, 2vw, 18px) 10px;
             text-align: left;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: clamp(0.85rem, 2vw, 1rem);
         }
 
         .products-table tbody tr {
@@ -250,48 +310,52 @@
         }
 
         .products-table td {
-            padding: 16px 15px;
+            padding: clamp(12px, 2vw, 16px) 10px;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
         }
 
         .product-code {
             background: var(--actuatech-accent);
             color: white;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             display: inline-block;
         }
 
         .coverage-badge {
             background: var(--success);
             color: white;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 15px;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             font-weight: 600;
         }
 
-        /* Servicios Cards */
+        /* Servicios Cards - OPTIMIZADAS */
         .services-section {
-            padding: 40px;
+            padding: clamp(30px, 5vw, 40px) 20px;
             background: var(--light);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(20px, 3vw, 25px);
+            margin-top: clamp(20px, 4vw, 30px);
         }
 
         .service-card {
             background: white;
-            padding: 25px;
+            padding: clamp(20px, 3vw, 25px);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
             border-left: 4px solid var(--actuatech-accent);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
@@ -300,26 +364,30 @@
         }
 
         .service-icon {
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
             color: var(--actuatech-accent);
-            margin-bottom: 15px;
+            margin-bottom: clamp(10px, 2vw, 15px);
         }
 
         .service-title {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             font-weight: 700;
             color: var(--actuatech-primary);
-            margin-bottom: 12px;
+            margin-bottom: clamp(8px, 2vw, 12px);
+            border-bottom: 2px solid var(--actuatech-accent);
+            padding-bottom: 8px;
         }
 
         .service-list {
             list-style: none;
+            flex-grow: 1;
         }
 
         .service-list li {
             padding: 6px 0;
             position: relative;
             padding-left: 25px;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
         }
 
         .service-list li:before {
@@ -330,21 +398,93 @@
             font-weight: bold;
         }
 
+        .service-highlight {
+            font-weight: 600;
+            color: var(--actuatech-primary);
+        }
+
+        /* Servicios No Incluidos Cards */
+        .non-services-section {
+            padding: clamp(30px, 5vw, 40px) 20px;
+            background: white;
+        }
+
+        .non-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(20px, 3vw, 25px);
+            margin-top: clamp(20px, 4vw, 30px);
+        }
+
+        .non-service-card {
+            background: white;
+            padding: clamp(20px, 3vw, 25px);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--danger);
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .non-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .non-service-icon {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            color: var(--danger);
+            margin-bottom: clamp(10px, 2vw, 15px);
+        }
+
+        .non-service-title {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 700;
+            color: var(--danger);
+            margin-bottom: clamp(8px, 2vw, 12px);
+            border-bottom: 2px solid var(--danger);
+            padding-bottom: 8px;
+        }
+
+        .non-service-list {
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .non-service-list li {
+            padding: 6px 0;
+            position: relative;
+            padding-left: 25px;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        .non-service-list li:before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: var(--danger);
+            font-weight: bold;
+        }
+
         /* Condiciones de pago */
         .payment-section {
-            padding: 40px;
+            padding: clamp(30px, 5vw, 40px) 20px;
+            background: var(--light);
         }
 
         .payment-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 3vw, 25px);
+            margin-top: clamp(20px, 4vw, 30px);
         }
 
         .payment-card {
             background: white;
-            padding: 30px;
+            padding: clamp(25px, 3vw, 30px);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border-top: 4px solid;
@@ -356,48 +496,60 @@
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
         }
 
+        .payment-card.mid {
+            border-color: var(--warning);
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        }
+
         .payment-phase {
-            font-size: 1.2rem;
+            font-size: clamp(1.1rem, 2vw, 1.2rem);
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: clamp(10px, 2vw, 15px);
             color: var(--dark);
         }
 
         .payment-amount {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 2.5rem);
             font-weight: 800;
             color: var(--actuatech-primary);
-            margin-bottom: 10px;
+            margin-bottom: clamp(8px, 2vw, 10px);
         }
 
         .payment-percentage {
-            font-size: 1.5rem;
-            color: var(--success);
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: clamp(8px, 2vw, 10px);
+        }
+
+        .payment-percentage.mid {
+            color: var(--warning);
+        }
+
+        .payment-percentage.completed {
+            color: var(--success);
         }
 
         .payment-condition {
             color: var(--gray-500);
-            font-size: 0.95rem;
-            margin-bottom: 5px;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            margin-bottom: 4px;
         }
 
         /* Métodos de pago */
         .payment-methods {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: clamp(15px, 3vw, 20px);
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: clamp(20px, 4vw, 30px);
         }
 
         .method-card {
             background: white;
-            padding: 20px;
+            padding: clamp(15px, 3vw, 20px);
             border-radius: var(--radius);
             text-align: center;
-            width: 150px;
+            width: clamp(120px, 20vw, 150px);
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 2px solid transparent;
@@ -409,27 +561,27 @@
         }
 
         .method-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: clamp(8px, 2vw, 10px);
             color: var(--actuatech-primary);
         }
 
         /* Cronograma Mejorado - 100 DÍAS */
         .timeline-section {
-            padding: 40px;
-            background: var(--light);
+            padding: clamp(30px, 5vw, 40px) 20px;
+            background: white;
         }
 
         .timeline-groups {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(20px, 4vw, 30px);
+            margin-top: clamp(20px, 4vw, 30px);
         }
 
         .timeline-group {
             background: white;
-            padding: 25px;
+            padding: clamp(20px, 3vw, 25px);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -457,69 +609,73 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: clamp(15px, 3vw, 20px);
             padding-bottom: 10px;
             border-bottom: 2px solid var(--gray-200);
+            flex-wrap: wrap;
         }
 
         .group-title {
-            font-size: 1.4rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             font-weight: 700;
             color: var(--dark);
+            margin-bottom: 5px;
         }
 
         .group-days {
             background: var(--actuatech-accent);
             color: white;
-            padding: 5px 15px;
+            padding: 4px 12px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
 
         .group-products {
             list-style: none;
-            margin-bottom: 20px;
+            margin-bottom: clamp(15px, 3vw, 20px);
         }
 
         .group-products li {
-            padding: 8px 0;
+            padding: 7px 0;
             border-bottom: 1px dashed var(--gray-200);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .product-name {
             font-weight: 600;
             color: var(--dark);
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .product-days {
             background: var(--gray-200);
             color: var(--gray-600);
-            padding: 3px 10px;
+            padding: 3px 8px;
             border-radius: 15px;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             font-weight: 600;
         }
 
         .group-total {
             text-align: center;
-            padding-top: 15px;
+            padding-top: clamp(10px, 2vw, 15px);
             border-top: 2px solid var(--gray-200);
             font-weight: 700;
             color: var(--actuatech-primary);
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
         }
 
         /* Barra de progreso del cronograma */
         .timeline-progress {
-            margin: 40px 0 20px;
+            margin: clamp(20px, 5vw, 40px) 0 clamp(15px, 3vw, 20px);
         }
 
         .progress-bar {
-            height: 20px;
+            height: 16px;
             background: var(--gray-200);
             border-radius: 10px;
             overflow: hidden;
@@ -540,8 +696,9 @@
             top: -25px;
             transform: translateX(-50%);
             text-align: center;
-            font-size: 0.8rem;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
             color: var(--gray-600);
+            white-space: nowrap;
         }
 
         .progress-marker::after {
@@ -555,19 +712,19 @@
             background: var(--gray-400);
         }
 
-        /* Garantía */
+        /* Garantía - ACTUALIZADA con 180 días */
         .warranty-section {
-            padding: 40px;
+            padding: clamp(30px, 5vw, 40px) 20px;
             background: linear-gradient(135deg, var(--light) 0%, #e0f2fe 100%);
             text-align: center;
         }
 
         .warranty-card {
             background: white;
-            padding: 40px;
+            padding: clamp(25px, 5vw, 40px);
             border-radius: var(--radius);
             box-shadow: var(--shadow-lg);
-            max-width: 600px;
+            width: min(600px, 90%);
             margin: 0 auto;
             position: relative;
             overflow: hidden;
@@ -583,47 +740,77 @@
             background: linear-gradient(90deg, var(--success), var(--actuatech-accent));
         }
 
+        .warranty-total {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--gray-500);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
         .warranty-days {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
             font-weight: 900;
             color: var(--success);
             margin-bottom: 10px;
             line-height: 1;
         }
 
+        .warranty-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--actuatech-primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .warranty-divider {
+            width: 80px;
+            height: 2px;
+            background: var(--actuatech-accent);
+            margin: 20px auto;
+            opacity: 0.3;
+        }
+
+        .warranty-text {
+            color: var(--gray-600);
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
         /* Footer */
         .footer {
             background: var(--actuatech-primary);
             color: white;
-            padding: 40px;
+            padding: clamp(30px, 5vw, 40px) 20px;
             text-align: center;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: clamp(20px, 4vw, 40px);
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: clamp(20px, 4vw, 30px);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1rem;
+            gap: 8px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .contact-icon {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: var(--actuatech-accent);
         }
 
         .confidential {
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             opacity: 0.8;
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: clamp(15px, 3vw, 20px);
+            padding-top: clamp(15px, 3vw, 20px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -645,7 +832,7 @@
                 print-color-adjust: exact;
             }
             
-            .stat-card, .service-card, .payment-card, .method-card, .timeline-group {
+            .stat-card, .service-card, .non-service-card, .payment-card, .method-card, .timeline-group {
                 break-inside: avoid;
                 box-shadow: none;
                 border: 1px solid #ddd;
@@ -660,36 +847,17 @@
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .logos-section {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .company-logo {
-                width: 100%;
-                max-width: 300px;
-            }
-            
+        /* Responsive para móviles pequeños */
+        @media (max-width: 480px) {
             .stats-section {
                 grid-template-columns: repeat(2, 1fr);
-                padding: 30px 20px;
             }
             
-            .products-section, .services-section, .payment-section, .timeline-section, .warranty-section {
-                padding: 30px 20px;
+            .services-grid, .non-services-grid {
+                grid-template-columns: 1fr;
             }
             
-            .services-grid, .timeline-groups {
+            .timeline-groups {
                 grid-template-columns: 1fr;
             }
             
@@ -697,41 +865,85 @@
                 grid-template-columns: 1fr;
             }
             
+            .products-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
             .contact-info {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
+            }
+        }
+
+        /* Responsive para tablets */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .company-logo {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .client-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        /* Responsive para pantallas grandes */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1400px;
+            }
+            
+            .services-grid, .non-services-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- Header con logo de Actuatech -->
         <div class="header">
             <div class="header-content">
-                <h1>PROPUESTA DE DESARROLLO</h1>
+                <h1>PROPUESTA TÉCNICO-COMERCIAL</h1>
                 <div class="header-subtitle">Configuración de Productos en Sistema Sirweb</div>
                 
-                <!-- Logos de empresas -->
-                <div class="logos-section">
+                <!-- Logo de Actuatech en el header -->
+                <div class="logo-section">
                     <div class="company-logo">
-                        <!-- Logo Actuatech -->
-
+                        <!-- Logo Actuatech - Se adapta al tamaño de la tarjeta -->
+                        <img src="LOGO_ACTUATECH.png" alt="Consultoría Actuatech" class="logo-img" id="actuatech-logo">
                         <div class="company-info">
                             <div class="company-name">CONSULTORÍA ACTUATECH C.A.</div>
                             <div class="company-rif">RIF: J-50639349-2</div>
+                            <div style="margin-top: 10px; font-style: italic; font-size: clamp(0.8rem, 2vw, 0.9rem);">
+                                Especialistas en Configuración de Sistemas de Seguros
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="company-logo">
-                        <!-- Logo Mercantil -->
-                        <div class="logo-placeholder">
+                </div>
+            </div>
+        </div>
 
-                        </div>
-                        <div class="company-info">
-                            <div class="company-name">MERCANTIL SEGUROS C.A.</div>
-                            <div class="company-rif">RIF: J-00090180-5</div>
-                        </div>
+        <!-- Sección del cliente Mercantil -->
+        <div class="client-section">
+            <h2 class="section-title">👥 CLIENTE</h2>
+            <div class="client-card">
+                <div class="client-title">CLIENTE BENEFICIARIO</div>
+                <div class="client-logo-container">
+                    <!-- Logo Mercantil - Se adapta al tamaño del contenedor -->
+                    <img src="mercantil_logo.png" alt="Mercantil Seguros" class="client-logo" id="mercantil-logo">
+                </div>
+                <div class="company-info">
+                    <div class="company-name">MERCANTIL SEGUROS C.A.</div>
+                    <div class="company-rif">RIF: J-00090180-5</div>
+                    <div style="margin-top: 10px; color: var(--gray-500); font-size: clamp(0.8rem, 2vw, 0.9rem);">
+                        <i class="fas fa-map-marker-alt"></i> Caracas, Venezuela
                     </div>
                 </div>
             </div>
@@ -836,9 +1048,9 @@
             </table>
         </div>
 
-        <!-- Servicios Incluidos -->
+        <!-- SERVICIOS INCLUIDOS - OPTIMIZADOS -->
         <div class="services-section">
-            <h2 class="section-title">🛠️ SERVICIOS INCLUIDOS</h2>
+            <h2 class="section-title">✅ SERVICIOS INCLUIDOS</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-cogs"></i></div>
@@ -852,30 +1064,36 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-vial"></i></div>
-                    <h3 class="service-title">Calidad y Pruebas</h3>
+                    <div class="service-icon"><i class="fas fa-sitemap"></i></div>
+                    <h3 class="service-title">Estructura y Canales</h3>
                     <ul class="service-list">
-                        <li>Pruebas Unitarias</li>
-                        <li>Material de Pruebas</li>
-                        <li>Validaciones Funcionales</li>
-                        <li>Control de Cambios</li>
+                        <li><span class="service-highlight">Cliente - Tarifa - Plan</span></li>
+                        <li><span class="service-highlight">Parametrización canal de venta para portales</span></li>
                     </ul>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-file-alt"></i></div>
-                    <h3 class="service-title">Documentación</h3>
+                    <h3 class="service-title">Documentación y Reportes</h3>
                     <ul class="service-list">
                         <li>Manual Técnico por Producto</li>
                         <li>Guías de Procedimiento</li>
-                        <li>Especificaciones Funcionales</li>
-                        <li>Actas de Entrega</li>
+                        <li>Reporte Semanal web de avance</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="service-title">Scripts y Calidad</h3>
+                    <ul class="service-list">
+                        <li><span class="service-highlight">Scripts de pase</span></li>
+                        <li>Pruebas Unitarias</li>
                     </ul>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h3 class="service-title">Capacitación</h3>
+                    <h3 class="service-title">Capacitación y Soporte</h3>
                     <ul class="service-list">
                         <li>Inducción Área de Suscripción</li>
                         <li>Inducción Área de Indemnizaciones</li>
@@ -883,6 +1101,50 @@
                         <li>Sesión Preguntas y Respuestas</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+
+        <!-- SERVICIOS NO INCLUIDOS -->
+        <div class="non-services-section">
+            <h2 class="section-title">❌ SERVICIOS NO INCLUIDOS</h2>
+            <div class="non-services-grid">
+                <div class="non-service-card">
+                    <div class="non-service-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3 class="non-service-title">Reportes</h3>
+                    <ul class="non-service-list">
+                        <li><strong>Modificación estructural de reportes</strong></li>
+                        <li>Diseño de nuevos formatos</li>
+                        <li>Modificación de layouts existentes</li>
+                        <li>Creación de reportes personalizados</li>
+                    </ul>
+                </div>
+                
+                <div class="non-service-card">
+                    <div class="non-service-icon"><i class="fas fa-calculator"></i></div>
+                    <h3 class="non-service-title">Contabilidad</h3>
+                    <ul class="non-service-list">
+                        <li><strong>Incorporación de Asientos Contables</strong></li>
+                        <li>Configuración de planes de cuentas</li>
+                        <li>Automatización contable</li>
+                        <li>Interfaz con sistemas contables</li>
+                    </ul>
+                </div>
+                
+                <div class="non-service-card">
+                    <div class="non-service-icon"><i class="fas fa-flask"></i></div>
+                    <h3 class="non-service-title">Pruebas Funcionales</h3>
+                    <ul class="non-service-list">
+                        <li><strong>Pruebas Funcionales</strong></li>
+                        <li>Casos de prueba funcionales</li>
+                        <li>Validación de negocio</li>
+                        <li>Aceptación de usuarios (UAT)</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px; padding: 15px; background: var(--gray-100); border-radius: var(--radius);">
+                <p style="color: var(--gray-600);">
+                    <i class="fas fa-info-circle"></i> Los servicios no incluidos pueden ser cotizados por separado según requerimientos específicos.
+                </p>
             </div>
         </div>
 
@@ -899,34 +1161,41 @@
                     <div class="payment-condition">Firma del contrato</div>
                 </div>
                 
+                <div class="payment-card mid">
+                    <div class="payment-phase">⏳ MITAD DE PROYECTO</div>
+                    <div class="payment-percentage mid">50%</div>
+                    <div class="payment-amount">USD 33,000</div>
+                    <div class="payment-condition">Entrega de 3 productos</div>
+                    <div class="payment-condition">Aceptación parcial</div>
+                </div>
+                
                 <div class="payment-card completed">
                     <div class="payment-phase">🏁 FINALIZACIÓN COMPLETA</div>
-                    <div class="payment-percentage">100%</div>
-                    <div class="payment-amount">USD 66,000</div>
-                    <div class="payment-condition">Pago total al finalizar</div>
+                    <div class="payment-percentage completed">50%</div>
+                    <div class="payment-amount">USD 33,000</div>
                     <div class="payment-condition">Entrega de los 6 productos</div>
-                    <div class="payment-condition">Aceptación del cliente</div>
+                    <div class="payment-condition">Aceptación total del cliente</div>
                 </div>
             </div>
             
-            <h3 style="text-align: center; margin: 40px 0 20px; color: var(--actuatech-primary);">MÉTODOS DE PAGO DISPONIBLES</h3>
+            <h3 style="text-align: center; margin: clamp(30px, 5vw, 40px) 0 clamp(15px, 3vw, 20px); color: var(--actuatech-primary);">MÉTODOS DE PAGO DISPONIBLES</h3>
             
             <div class="payment-methods">
                 <div class="method-card">
                     <div class="method-icon"><i class="fas fa-money-bill-wave"></i></div>
-                    <div style="font-weight: 600; color: var(--dark);">USD EFECTIVO</div>
+                    <div style="font-weight: 600; color: var(--dark); font-size: clamp(0.85rem, 2vw, 1rem);">USD EFECTIVO</div>
                 </div>
                 
                 <div class="method-card">
                     <div class="method-icon"><i class="fas fa-university"></i></div>
-                    <div style="font-weight: 600; color: var(--dark);">BOLÍVARES BCV</div>
-                    <div style="font-size: 0.8rem; color: var(--gray-500);">Tasa del día</div>
+                    <div style="font-weight: 600; color: var(--dark); font-size: clamp(0.85rem, 2vw, 1rem);">BOLÍVARES BCV</div>
+                    <div style="font-size: clamp(0.7rem, 2vw, 0.8rem); color: var(--gray-500);">Tasa del día</div>
                 </div>
                 
                 <div class="method-card">
                     <div class="method-icon"><i class="fas fa-coins"></i></div>
-                    <div style="font-weight: 600; color: var(--dark);">BINANCE</div>
-                    <div style="font-size: 0.8rem; color: var(--gray-500);">Transferencia cripto</div>
+                    <div style="font-weight: 600; color: var(--dark); font-size: clamp(0.85rem, 2vw, 1rem);">BINANCE</div>
+                    <div style="font-size: clamp(0.7rem, 2vw, 0.8rem); color: var(--gray-500);">Transferencia cripto</div>
                 </div>
             </div>
         </div>
@@ -1013,53 +1282,63 @@
                 </div>
             </div>
             
-            <div style="margin-top: 30px; padding: 20px; background: white; border-radius: var(--radius); box-shadow: var(--shadow);">
-                <h4 style="color: var(--actuatech-primary); margin-bottom: 15px;">📋 Resumen del Cronograma:</h4>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center;">
+            <div style="margin-top: clamp(20px, 4vw, 30px); padding: clamp(15px, 3vw, 20px); background: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                <h4 style="color: var(--actuatech-primary); margin-bottom: clamp(10px, 2vw, 15px); font-size: clamp(1rem, 2.5vw, 1.2rem);">📋 Resumen del Cronograma:</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 2vw, 15px); text-align: center;">
                     <div>
-                        <div style="font-weight: bold; color: var(--gray-600);">ENTREGA 1</div>
-                        <div style="font-size: 1.2rem; font-weight: bold; color: var(--actuatech-primary);">Día 35</div>
-                        <div style="font-size: 0.9rem;">2 Productos</div>
+                        <div style="font-weight: bold; color: var(--gray-600); font-size: clamp(0.8rem, 2vw, 0.9rem);">ENTREGA 1</div>
+                        <div style="font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: bold; color: var(--actuatech-primary);">Día 35</div>
+                        <div style="font-size: clamp(0.75rem, 2vw, 0.85rem);">2 Productos</div>
                     </div>
                     <div>
-                        <div style="font-weight: bold; color: var(--gray-600);">ENTREGA 2</div>
-                        <div style="font-size: 1.2rem; font-weight: bold; color: var(--actuatech-primary);">Día 70</div>
-                        <div style="font-size: 0.9rem;">2 Productos</div>
+                        <div style="font-weight: bold; color: var(--gray-600); font-size: clamp(0.8rem, 2vw, 0.9rem);">ENTREGA 2</div>
+                        <div style="font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: bold; color: var(--actuatech-primary);">Día 70</div>
+                        <div style="font-size: clamp(0.75rem, 2vw, 0.85rem);">2 Productos</div>
                     </div>
                     <div>
-                        <div style="font-weight: bold; color: var(--gray-600);">ENTREGA 3</div>
-                        <div style="font-size: 1.2rem; font-weight: bold; color: var(--actuatech-primary);">Día 100</div>
-                        <div style="font-size: 0.9rem;">2 Productos</div>
+                        <div style="font-weight: bold; color: var(--gray-600); font-size: clamp(0.8rem, 2vw, 0.9rem);">ENTREGA 3</div>
+                        <div style="font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: bold; color: var(--actuatech-primary);">Día 100</div>
+                        <div style="font-size: clamp(0.75rem, 2vw, 0.85rem);">2 Productos</div>
                     </div>
                 </div>
             </div>
             
-            <p style="text-align: center; margin-top: 30px; color: var(--gray-500); font-style: italic;">
+            <p style="text-align: center; margin-top: clamp(20px, 4vw, 30px); color: var(--gray-500); font-style: italic; font-size: clamp(0.85rem, 2vw, 0.95rem);">
                 *Nota: El cronograma contempla ejecución en paralelo con 2 recursos especializados
             </p>
         </div>
 
-        <!-- Garantía -->
+        <!-- Garantía - ACTUALIZADA con 180 días -->
         <div class="warranty-section">
             <h2 class="section-title">🛡️ GARANTÍA Y SOPORTE</h2>
             <div class="warranty-card">
-                <div class="warranty-days">60 DÍAS</div>
-                <h3 style="color: var(--actuatech-primary); margin-bottom: 20px;">DE GARANTÍA POST-ENTREGA</h3>
-                <p style="color: var(--gray-600); line-height: 1.6;">
-                    A partir de la entrega de cada producto, ofrecemos <strong>60 días calendario</strong> 
-                    de soporte gratuito para corrección de errores de configuración, ajustes menores 
-                    derivados de pruebas funcionales, y soporte técnico especializado.
+                <div class="warranty-total">TOTAL: 180 DÍAS DE GARANTÍA</div>
+                
+                <div class="warranty-days">90 DÍAS</div>
+                <div class="warranty-subtitle">DE GARANTÍA POST-IMPLEMENTACIÓN EN AMBIENTE NO PRODUCTIVO</div>
+                
+                <div class="warranty-divider"></div>
+                
+                <div class="warranty-days">90 DÍAS</div>
+                <div class="warranty-subtitle">DE GARANTÍA POST-IMPLEMENTACIÓN EN AMBIENTE PRODUCTIVO</div>
+                
+                <div class="warranty-divider"></div>
+                
+                <p class="warranty-text">
+                    A partir de la entrega de cada producto, ofrecemos <strong>180 días calendario</strong> 
+                    de soporte gratuito distribuidos en 90 días en ambiente no productivo y 90 días en ambiente productivo
+                    para corrección de errores de configuración, ajustes menores derivados de pruebas funcionales, 
+                    y soporte técnico especializado.
                 </p>
             </div>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer - ACTUALIZADO con nuevos datos de contacto -->
         <div class="footer">
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope contact-icon"></i>
-                    <span>actuatechconsulting@gmail.com
-</span>
+                    <span>actuatechconsulting@gmail.com</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone contact-icon"></i>
@@ -1071,14 +1350,14 @@
                 </div>
             </div>
             
-            <div style="margin: 30px 0;">
-                <h3 style="margin-bottom: 10px; color: var(--actuatech-accent);">CONSULTORÍA ACTUATECH C.A.</h3>
-                <p style="opacity: 0.9;">Especialistas en Configuración de Sistemas de Seguros</p>
+            <div style="margin: clamp(20px, 4vw, 30px) 0;">
+                <h3 style="margin-bottom: 10px; color: var(--actuatech-accent); font-size: clamp(1.2rem, 3vw, 1.5rem);">CONSULTORÍA ACTUATECH C.A.</h3>
+                <p style="opacity: 0.9; font-size: clamp(0.9rem, 2vw, 1rem);">Especialistas en Configuración de Sistemas de Seguros</p>
             </div>
             
             <div class="confidential">
-                <p>📄 <strong>Documento confidencial</strong> - Propiedad de Consultoría Actuatech C.A.</p>
-                <p>⏳ Válido por <strong>15 días calendario</strong> a partir de su emisión</p>
+                <p style="margin-bottom: 5px;">📄 <strong>Documento confidencial</strong> - Propiedad de Consultoría Actuatech C.A.</p>
+                <p style="margin-bottom: 5px;">⏳ Válido por <strong>15 días calendario</strong> a partir de su emisión</p>
                 <p>⚖️ Ley aplicable: República Bolivariana de Venezuela</p>
             </div>
         </div>
@@ -1087,7 +1366,7 @@
     <script>
         // Script para cargar logos locales
         document.addEventListener('DOMContentLoaded', function() {
-            // URLs de imágenes de ejemplo (reemplazar con tus logos)
+            // URLs de imágenes (reemplazar con tus logos)
             const actuatechLogo = 'LOGO_ACTUATECH.png';
             const mercantilLogo = 'mercantil_logo.png';
             
@@ -1097,6 +1376,31 @@
             
             if (actuatechImg) actuatechImg.src = actuatechLogo;
             if (mercantilImg) mercantilImg.src = mercantilLogo;
+            
+            // Mostrar mensaje si no se encuentran los logos
+            if (actuatechImg && !actuatechImg.complete) {
+                actuatechImg.onerror = function() {
+                    this.parentElement.innerHTML = `
+                        <div style="text-align: center; padding: clamp(15px, 3vw, 20px); width: 100%;">
+                            <div style="font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: bold; margin-bottom: 10px; color: white;">ACTUA-TECH</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: clamp(0.9rem, 2vw, 1.1rem);">Consultoría Especializada</div>
+                        </div>
+                    `;
+                };
+            }
+            
+            if (mercantilImg && !mercantilImg.complete) {
+                mercantilImg.onerror = function() {
+                    this.parentElement.innerHTML = `
+                        <div style="text-align: center; padding: 10px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div>
+                                <div style="font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: bold; margin-bottom: 5px; color: #0056b3;">MERCANTIL</div>
+                                <div style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #0056b3;">Seguros C.A.</div>
+                            </div>
+                        </div>
+                    `;
+                };
+            }
         });
     </script>
 </body>
